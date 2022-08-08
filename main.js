@@ -395,17 +395,34 @@ the relationship between i and len should be false when i == 5.
 
 
   /*
+
+TOPIC Problem Explanation
+
+To prevent an infinite loop, the while-condition must reach 
+a terminal condition to exit out of the loop.
+So the error in this challenge occurs due to the condition 
+- i != 4 - in the for loop.
+If you take a closer look at the code:
+
   The myFunc() function contains an infinite loop
-   because the terminal condition i != 4 will never
-    evaluate to false (and break the looping) - 
-    i will increment by 2 each pass, and jump right
-    over 4 since i is odd to start. Fix the comparison 
+ because the terminal condition i != 4 will never
+evaluate to false (and break the looping) - 
+i will increment by 2 each pass, and jump right
+over 4 since i is odd to start. Fix the comparison 
 operator in the terminal condition so the loop only 
 runs for i less than or equal to 4.
   */
 
 
 /*
+
+
+You will see that i is first initialised as 1 and after every iteration of the loop, i is incremented by 2.
+Using this logic, after the first iteration - i = 3 and the 
+second iteration i = 5, the condition i != 4 will never 
+be met and an infinite loop will occur.
+
+
 function myFunc() {
   for (let i = 1; i != 4; i += 2) {
     console.log("Still going!");
